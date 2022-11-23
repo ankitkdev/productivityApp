@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Todolist from './Todolist';
 
 const Todoform = () => {
 
@@ -12,13 +13,13 @@ const Todoform = () => {
             setError('Please do not leave blank');
         }
         else{
-            setStoreTodo([...storeTodo, todoField]);
+            setStoreTodo([...storeTodo, todoField ]);
             setError('');
+            setTodoField('')
         }
         
     }
 
-    console.log(storeTodo)
     return (
         <>
         {error?<>{error}</>:<></> }
@@ -27,16 +28,9 @@ const Todoform = () => {
                 <button className='btn btn-danger col-3' onClick={addTodo}>Add Todo</button>
             </form>
 
-            {storeTodo && storeTodo.map((itms) => {
-                return (
-                    <>
-                        <div className='form-group py-2'>
-                            <input type="checkbox" /> {itms}
-                        </div>
-                    </>
-                )
-
-            })}
+            <Todolist 
+                storeTodo={storeTodo}
+            />
         </>
     )
 }
