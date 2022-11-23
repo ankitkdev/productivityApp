@@ -1,4 +1,7 @@
-body{
+body {
     height: 100%;
     font-family: 'Poppins', sans-serif;
+    background: radial-gradient(80.99% 100% at 50% 0, #00ff0a 0, #36008e 100%), radial-gradient(50% 123.47% at 50% 50%, #efe7c8 0, #36008e 100%), linear-gradient(301.28deg, #ff006b, #48dd9e), linear-gradient(.819turn, #5a60e4, #d30000), linear-gradient(52.29deg, #000, #00ff85), radial-gradient(100% 138.69% at 100% 0, #0007a5 0, #ff7a00 100%), radial-gradient(70.41% 100% at 50% 0, #d5b300 0, #20a 100%);
+    background-blend-mode: screen, screen, lighten, overlay, lighten, difference, normal;
+    min-height: 100vh;
 }
