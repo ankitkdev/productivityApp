@@ -9,7 +9,7 @@ const Todo = ({ key, todo, setTodos, text, todos }) => {
     setTodos(todos.filter(element => element.id !== todo.id));   
   };
   
-  const handleComplete = () => {
+   const handleComplete = () => {
     setTodos(todos.map(item => {
       if (item.id === todo.id) {
         return {
