@@ -1,0 +1,12 @@
+  .icons {
+    cursor: pointer;
+  }
+  
+  .icons:hover, .completed {
+    opacity: 0.3;
+  }
+
+  .completed {
+    font-style: italic;
+    text-decoration: line-through;
+  }

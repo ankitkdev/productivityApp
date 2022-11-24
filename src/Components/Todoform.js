@@ -1,5 +1,4 @@
-import React, { useState } from 'react'
-import Todolist from './Todolist';
+import React from 'react';
 
 const Todoform = ({inputField,setInputField,todos,setTodos,setStatus}) => {
 
