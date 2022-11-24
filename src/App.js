@@ -19,23 +19,15 @@ function App() {
     localStorage.setItem('todos', JSON.stringify(todos));
   }, [todos]);
 
-  let localTodos = JSON.parse(localStorage.getItem('todos'));
-      console.log(localTodos)
-
   const getLocalTodos = () => {
     if(localStorage.getItem('todos') === null) {
       localStorage.setItem('todos', JSON.stringify([]));
 
     } else {
       let localTodos = JSON.parse(localStorage.getItem('todos'));
-      console.log(localTodos)
       setTodos(localTodos)
     }
   };
-
-  const handleRemoveAll = () => {
-    setTodos([]);
-  }
 
   useEffect(() => {
     const handleFiltering = () => {
@@ -55,6 +47,10 @@ function App() {
     handleFiltering();
     saveToLocal();
   }, [todos, status, saveToLocal]);
+
+  const handleRemoveAll = () => {
+    setTodos([]);
+  }
 
   return (
     <>
