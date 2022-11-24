@@ -1,49 +1,45 @@
 import React, { useState } from 'react'
 import Todolist from './Todolist';
 
-const Todoform = () => {
+const Todoform = ({inputField,setInputField,todos,setTodos,setStatus}) => {
 
-    const [todoField, setTodoField] = useState({
-        todoName:'',
-        id:Math.floor(Math.random()*1000),
-        complete:false
-    });
-
-    const {todoName} = todoField;
-    const [storeTodo, setStoreTodo] = useState([]);
-    const [error,setError]=useState('')
-
-    const todoHandler = (e) =>{
-        setTodoField({...todoField,[e.target.name]:e.target.value,id:Math.floor(Math.random()*1000),complete:false})
+    const inputHandler = (e) => {
+        setInputField(e.target.value)
     }
 
-    const addTodo = (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
-        if(todoName===''){
-            setError('Please do not leave blank');
+        if(!inputField || /^\s*$/.test(inputField)){
+            return
         }
-        else{
-            setStoreTodo([...storeTodo, todoField] );
-            setError('');
-            setTodoField({
-                todoName:''
-            })
-        }
-        
+        setTodos([...todos, {text:inputField, completed:false, id:Math.floor(Math.random()*10000)}])
+        setInputField('')
     }
 
+    // console.log(todos)
 
     return (
         <>
-                {error?<>{error}</>:<></> }
-            <form className='d-flex'>
-                <input className='form-control' name='todoName' value={todoName} onChange={todoHandler} placeholder="Enter the todo name" />
-                <button className='btn btn-danger col-3' onClick={addTodo}>Add Todo</button>
+            <form className='d-flex' onSubmit={handleSubmit}>
+
+                <input className='form-control' 
+                type="text"  
+                name='todoName' 
+                value={inputField} 
+                placeholder="Enter the todo name" 
+                onChange={inputHandler}
+                />
+
+                <button 
+                className='btn btn-danger col-3'
+                type='submit'                
+                >Add Todo</button>
             </form>
 
-            <Todolist 
+            {/* <Todolist 
                 storeTodo={storeTodo}
-            />
+                setTodoField={setTodoField}
+            /> */}
             
         </>
     )
