@@ -25,8 +25,8 @@ const Todo = ({ key, todo, setTodos, text, todos }) => {
       <div className='form-group alert alert-secondary mt-2 d-flex justify-content-between' key={key}>
         <span className={`${todo.completed ? 'completed' : ''}`}>
         {todo.completed === false ?
-          <BiCheckbox onClick={handleComplete} className='icon fs-4' /> :
-          <BiCheckboxChecked onClick={handleComplete} className='icon fs-4' />
+          <BiCheckbox onClick={handleComplete} className='icons fs-4' /> :
+          <BiCheckboxChecked onClick={handleComplete} className='icons fs-4' />
         }
         <span>{text}</span>
         </span>

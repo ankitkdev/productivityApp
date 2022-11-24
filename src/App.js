@@ -24,7 +24,6 @@ function App() {
               setTodos={setTodos}
               setStatus={setStatus}
           />
-
           <Todolist
              todos={todos}
              setTodos={setTodos}
