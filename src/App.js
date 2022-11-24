@@ -11,23 +11,9 @@ function App() {
   const [status,setStatus]=useState('all');
   const [filtertodos,setFilteredTodos]=useState([]);
 
-  useEffect(() => {
-    getLocalTodos();
-  }, []);
-
-  const saveToLocal = React.useCallback(() => {
+ const saveToLocal = React.useCallback(() => {
     localStorage.setItem('todos', JSON.stringify(todos));
   }, [todos]);
-
-  const getLocalTodos = () => {
-    if(localStorage.getItem('todos') === null) {
-      localStorage.setItem('todos', JSON.stringify([]));
-
-    } else {
-      let localTodos = JSON.parse(localStorage.getItem('todos'));
-      setTodos(localTodos)
-    }
-  };
 
   useEffect(() => {
     const handleFiltering = () => {
