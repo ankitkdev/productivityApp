@@ -34,11 +34,6 @@ const Todoform = ({inputField,setInputField,todos,setTodos,setStatus}) => {
                 type='submit'                
                 >Add Todo</button>
             </form>
-
-            {/* <Todolist 
-                storeTodo={storeTodo}
-                setTodoField={setTodoField}
-            /> */}
             
         </>
     )
