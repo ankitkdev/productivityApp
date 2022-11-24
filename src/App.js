@@ -1,7 +1,7 @@
 import Header from "./Components/Header";
 import Todoform from "./Components/Todoform";
 import './App.css';
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Todolist from "./Components/Todolist";
 
 function App() {
@@ -10,6 +10,28 @@ function App() {
   const [todos,setTodos] = useState([])
   const [status,setStatus]=useState('all');
   const [filtertodos,setFilteredTodos]=useState([]);
+
+  useEffect(() => {
+    getLocalTodos();
+  }, []);
+
+  const saveToLocal = React.useCallback(() => {
+    localStorage.setItem('todos', JSON.stringify(todos));
+  }, [todos]);
+
+  let localTodos = JSON.parse(localStorage.getItem('todos'));
+      console.log(localTodos)
+
+  const getLocalTodos = () => {
+    if(localStorage.getItem('todos') === null) {
+      localStorage.setItem('todos', JSON.stringify([]));
+
+    } else {
+      let localTodos = JSON.parse(localStorage.getItem('todos'));
+      console.log(localTodos)
+      setTodos(localTodos)
+    }
+  };
 
   const handleRemoveAll = () => {
     setTodos([]);
@@ -31,7 +53,8 @@ function App() {
     };
 
     handleFiltering();
-  }, [todos, status]);
+    saveToLocal();
+  }, [todos, status, saveToLocal]);
 
   return (
     <>
