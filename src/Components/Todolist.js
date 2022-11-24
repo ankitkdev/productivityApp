@@ -9,7 +9,7 @@ const Todolist = ({ todos, setTodos, filtertodos }) => {
 
     return (
         <>
-            {todos.map((todo) => {
+            {filtertodos.map((todo) => {
                 return (
                     <Todo
                         key={todo.id}
