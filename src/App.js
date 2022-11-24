@@ -11,6 +11,9 @@ function App() {
   const [status,setStatus]=useState('all');
   const [filtertodos,setFiltertodos]=useState([]);
 
+  const handleRemoveAll = () => {
+    setTodos([]);
+  }
   return (
     <>
 
@@ -29,9 +32,17 @@ function App() {
              setTodos={setTodos}
              filtertodos={filtertodos}
           />
-        </div>
-
+          {todos.length > 0 && 
+        <button 
+          type='button' 
+          name='clear-all' 
+          value='delete'
+          className='btn btn-success'
+          onClick={handleRemoveAll}
+        > Remove all
+      </button>}
       </div>
+        </div>
     </>
 
   );
